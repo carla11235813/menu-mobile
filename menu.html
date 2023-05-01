@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Site</title>
+    <style>
+        * {
+            overflow-x: hidden;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        header {
+            height: 100vh;
+            width: 100%;
+            background-image: linear-gradient(to right, #3F5EFB, #40E0D0, #FF8C00, #FF0080);
+            background-size: 300%;
+            animation: gradiente 5s ease-in-out alternate infinite;
+        }
+
+        @keyframes gradiente {
+            0% {
+                background-position: 0%;
+            }
+
+            100% {
+                background-position: 100%;
+            }
+        }
+
+        .texto p {
+            font-size: 4rem;
+            font-weight: lighter;
+            margin-top: 200px;
+        }
+        .container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 20px;
+            background-color: transparent;
+            font-size: 25px ;
+            font-family: Arial, Helvetica, sans-serif;
+            color: white;
+            max-width: 1100px;
+            margin: auto;
+        }
+
+        .menu nav a {
+            color: white;
+            text-decoration: none;
+            margin-left: 50px;
+        }
+
+        /* MENU MOBILE */
+        .menu-mobile {
+            background-color: #00000062;
+            backdrop-filter: blur(10px);
+            position: absolute;
+            top: 71px;
+            left: 0;
+            width: 100%;
+            height: 0;
+            visibility: hidden;
+            transition: .5s;
+            overflow: hidden;
+        }
+
+        .menu-mobile nav a {
+            color: white;
+            text-decoration: none;
+            display: block;
+            padding: 25px 20px;
+        }
+
+        .menu-mobile nav a:hover {
+            background-color: #00000056;
+        }
+
+        button {
+            background-color: transparent;
+            border: none;
+            display: none;
+        }
+
+        @media screen and (max-width: 1000px) {
+            .menu {
+                display: none;
+            }
+            .menu-mobile.abrir {
+                visibility: visible;
+                height: calc(100vh - 71px);
+            }
+            button {
+                display: block;
+            }
+        }
+
+
+        .linha {
+            position: relative;
+            height: 3px;
+            background: #fff;
+            width: 25px;
+            display: block;
+            margin: 5px auto;
+            transform-origin: center;
+            transition: .2s;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="logo">Logo</div>
+            <div class="menu">
+                <nav>
+                    <a href="#">home</a>
+                    <a href="#">blog</a>
+                    <a href="#">sobre nós</a>
+                    <a href="#">contato</a>
+                </nav>
+            </div>
+
+            <button onclick="animarMenu()" id="btn-menu" itemid="btn-menu">
+                <span class="linha"></span>
+                <span class="linha"></span>
+                <span class="linha"></span>
+            </button>
+
+            <div class="menu-mobile" id="menu-mobile">
+                <nav>
+                    <a href="#">home</a>
+                    <a href="#">blog</a>
+                    <a href="#">sobre nós</a>
+                    <a href="#">contato</a>
+                </nav>
+            </div>
+        </div>
+        <hr>
+
+        <div class="container texto">
+            <p>Olá, Mundo!</p>
+        </div>
+    </header>
+
+    <script src="animar.js"></script>
+</body>
+</html>
